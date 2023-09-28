@@ -4,6 +4,11 @@
     Modifier votre profil
 @endsection
 
+@section('retour')
+    <a href="{{ route('thread') }}" class="btn bg-light text-dark position-relative ms-2" data-bs-toggle="tooltip" data-bs-placement="right">Retour</a>
+@endsection
+
+
 @section('contenu')
     <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
         <p><span class="bg-dark bg-gradient p-2 rounded-3 fw-bold fs-3 text-light text-center d-grid gap-2 col-6 mx-auto">
@@ -49,16 +54,6 @@
                         @if($errors->has('pseudo'))
                         <div class="alert alert-danger">
                             <p class="help is-danger">{{ $errors->first('pseudo') }}</p>
-                        </div>
-                        @endif
-                    </div>
-                    
-                    <div class="form-outline mb-4">
-                        <input type="password" id="registerPassword" name="password" class="form-control @error('password') is-invalid @enderror"/>
-                        <label class="form-label" for="registerPassword">Mot de passe</label>
-                        @if($errors->has('password'))
-                        <div class="alert alert-danger">
-                            <p class="help is-danger">{{ $errors->first('password') }}</p>
                         </div>
                         @endif
                     </div>

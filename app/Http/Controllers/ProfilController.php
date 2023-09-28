@@ -36,7 +36,6 @@ class ProfilController extends Controller
 
         $user->name = $inscriptionRequest->name;
         $user->username = $inscriptionRequest->username;
-        $user->password = bcrypt($inscriptionRequest->password);
 
         if ($inscriptionRequest->has('email')) {
             $user->email = $inscriptionRequest->email;
