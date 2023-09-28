@@ -23,7 +23,7 @@
                                 <span class="idd1">{{ $user->id }}</span> 
                             </div>
                         @endif
-                        <div class=" d-flex mt-2">
+                        <div class=" d-flex mt-4">
                             <a href="{{ route('profil') }}" class="btn btn-dark bg-gradient">Modifier le profil</a>
                         </div> 
                         <div class="text mt-3">

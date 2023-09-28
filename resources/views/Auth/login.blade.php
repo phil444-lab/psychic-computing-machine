@@ -19,7 +19,7 @@
                     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                         <form class="form" action="{{ route('login') }}" method="post">
                             @csrf
-                            <div class="form-outline mb-4">
+                            <div class="form-outline mb-5">
                                 <input type="text" id="loginPseudo" value="{{ old('pseudo') }}" name="pseudo" class="form-control @error('pseudo') is-invalid @enderror"/>
                                 <label class="form-label" for="loginPseudo">Pseudonyme</label>
                                 @if($errors->has('pseudo'))
@@ -29,7 +29,7 @@
                                 @endif
                             </div>
 
-                            <div class="form-outline mb-4">
+                            <div class="form-outline mb-5">
                                 <input type="password" id="loginPassword" name="password" class="form-control @error('password') is-invalid @enderror"/>
                                 <label class="form-label" for="loginPassword">Mot de passe</label>
                                 @if($errors->has('password'))
@@ -39,7 +39,7 @@
                                 @endif
                             </div>
                             
-                            <button type="submit" class="btn btn-outline-dark mb-4 d-grid gap-2 col-sm-3 col-md-6 mx-auto">Connexion</button>
+                            <button type="submit" class="btn btn-outline-dark mt-5 mb-3 d-grid gap-2 col-sm-3 col-md-6 mx-auto">Connexion</button>
                         </form>
                     </div>
                 </div>
