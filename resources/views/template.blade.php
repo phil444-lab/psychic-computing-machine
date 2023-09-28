@@ -77,17 +77,17 @@
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <a href="#" class="text-decoration-none text-light" data-bs-toggle="tooltip" title="LinkedIn">
-                                <i class="fab fa-linkedin fa-2x"></i>
+                                <i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="#" class="text-decoration-none text-light" data-bs-toggle="tooltip" title="Instagram">
-                                <i class="fab fa-instagram-square fa-2x"></i>
+                                <i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="#" class="text-decoration-none text-light" data-bs-toggle="tooltip" title="Twitter">
-                                <i class="fab fa-twitter-square fa-2x"></i>
+                                <i class="fab fa-twitter fa-2x" style="color: #55acee;"></i>
                             </a>
                         </li>
                     </ul>

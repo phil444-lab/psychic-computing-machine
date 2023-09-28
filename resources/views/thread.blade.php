@@ -14,7 +14,7 @@
             <div class="col-12 col-md-4">
                 <div class="card p-4">
                     <div class=" image d-flex flex-column justify-content-center align-items-center"> 
-                        <button class="btn btn-secondary"> <img src=" " height="100" width="100" /></button> 
+                        <img src=" " class="bg-dark rounded-circle" height="150" width="150" /> 
                         @if($user)
                             <span class="name mt-3">{{ $user->name }} {{ $user->username }}</span>
                             <span class="idd">{{ $user->pseudo }}</span>

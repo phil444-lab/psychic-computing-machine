@@ -4,11 +4,6 @@
     Modifier votre profil
 @endsection
 
-@section('retour')
-    <a href="{{ route('thread') }}" class="btn bg-light text-dark position-relative ms-2" data-bs-toggle="tooltip" data-bs-placement="right">Retour</a>
-@endsection
-
-
 @section('contenu')
     <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
         <p><span class="bg-dark bg-gradient p-2 rounded-3 fw-bold fs-3 text-light text-center d-grid gap-2 col-6 mx-auto">
@@ -17,7 +12,7 @@
         <div class="tab-content py-5 px-4 mx-5 border border-3 border-dark bg-gradient rounded-4">
             <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                 <form class="form" action="{{ route('profil') }}" method="post">
-                    @csrf 
+                @csrf 
                     <div class="form-outline mb-4">
                         <input type="text" id="registerName" value="{{ old('name') }}" name="name" class="form-control @error('name') is-invalid @enderror"/>
                         <label class="form-label" for="registerName">Nom</label>
@@ -58,7 +53,17 @@
                         @endif
                     </div>
                     
-                    <button type="submit" class="btn btn-outline-dark mb-3 d-grid gap-2 col-sm-3 col-md-6 mx-auto">Valider</button>
+                    <div class="form-outline mb-4">
+                        <input type="password" id="registerPassword" name="password" class="form-control @error('password') is-invalid @enderror"/>
+                        <label class="form-label" for="registerPassword">Mot de passe</label>
+                        @if($errors->has('password'))
+                        <div class="alert alert-danger">
+                            <p class="help is-danger">{{ $errors->first('password') }}</p>
+                        </div>
+                        @endif
+                    </div>
+                    
+                    <button type="submit" class="btn btn-outline-dark mb-3 d-grid gap-2 col-sm-3 col-md-6 mx-auto">S'inscrire</button>
                 </form>
             </div> 
         </div>
