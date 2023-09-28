@@ -11,7 +11,7 @@
 @section('contenu')
     <div class="container align-items-center">
         <div class="row">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-5">
                 <div class="card p-4">
                     <div class=" image d-flex flex-column justify-content-center align-items-center"> 
                         <img src=" " class="bg-dark rounded-circle" height="150" width="150" /> 
@@ -60,7 +60,7 @@
             </div>
 
 
-            <div class="col-12 col-md-8 mt-5">
+            <div class="col-12 col-md-8">
                 @if(session('error'))
                     <div class="alert alert-danger">
                         {{ session('error') }}
