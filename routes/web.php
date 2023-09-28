@@ -32,6 +32,7 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/thread', [ThreadController::class, 'index'])->name('thread');
 Route::post('/thread', [ThreadController::class, 'posted']);
+Route::delete('/thread/{id}', [ThreadController::class, 'supp'])->name('supp_post');
 
 Route::get('/profil', [ProfilController::class, 'showProfil'])->name('profil');
 Route::post('/profil', [ProfilController::class, 'modifier']);

@@ -34,4 +34,19 @@ class ThreadController extends Controller
         $user->threadlists()->save($newThread);
         return redirect()->route('thread');
     }
+
+    public function supp($id)
+    {
+        $user = inscription::select('id', 'name', 'username', 'pseudo')->where('id', auth()->id())->first();
+        $delThread = threadlist::find($id);
+
+        if ($user->pseudo == $delThread->pseudo){
+            $delThread->delete();    
+            return redirect()->route('thread');
+        }
+        else{
+            return redirect()->route('thread')->with('error', 'Vous n\'êtes pas autorisé à supprimer ce post.');
+        }
+    }
+    
 }

@@ -29,11 +29,7 @@
                         </div> 
                         <div class="text mt-3">
                             <button type="button" class="btn btn-dark bg-gradient" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus mr-2">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                </svg>
-                                AJOUTER
+                                <i class="bi bi-plus"></i>AJOUTER
                             </button>
                         </div> 
                         
@@ -48,8 +44,8 @@
                                         <form class="form" action="{{ route('thread') }}" method="post" name="message">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="text" name="thread" class="form-control" placeholder="New message"/>
-                                                <button type="submit" class="btn btn-dark mt-4">Ajouter</button>
+                                                <input type="text" name="thread" class="form-control" placeholder="Nouveau message"/>
+                                                <button type="submit" class="btn btn-dark mt-4"><i class="bi bi-send-fill"></i></button>
                                             </div>
                                         </form>
                                     </div>
@@ -65,21 +61,33 @@
             </div>
 
 
-            <div class="col-12 col-md-8 mt-4">
-                <div class="card p-4">
-                    @foreach ($threads as $newThread)
-                        <div class="card bg-dark bg-gradient mb-2">
-                            <div class="card-body p-2 p-sm-3">
+            <div class="col-12 col-md-8">
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+                @foreach ($threads as $newThread)
+                    <div class="card bg-dark bg-gradient mb-3">
+                        <div class="card-body p-2 p-sm-3">
+                            <div class="d-flex justify-content-between align-items-start">
                                 <h6><strong class="text-light fs-4">{{ $newThread->pseudo }}</strong></h6>
-                                <p class="text-light">
-                                    <span><i class="bi bi-caret-right-fill"></i></span>
-                                    <span class="ms-3">{{ $newThread->thread }}</span>
-                                </p>
-                                <p class="text-light text-end fw-light fs-6">Posté le, <em class="text-light">{{ $newThread->created_at->format('d/m/Y à H:i') }}</em></p>
+                                <form method="POST" action="{{ route('supp_post', ['id' => $newThread->id]) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-light bg-gradient">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>    
                             </div>
+                            <p class="text-light">
+                                <span><i class="bi bi-check-all"></i></span>
+                                <span class="ms-3">{{ $newThread->thread }}</span>
+                            </p>
+                            <p class="text-light text-end fw-light fs-6">Posté le, <em class="text-light">{{ $newThread->created_at->format('d/m/Y à H:i') }}</em></p>
                         </div>
-                    @endforeach    
-                </div>
+                    </div>
+                @endforeach    
             </div>
         </div>
     </div>
