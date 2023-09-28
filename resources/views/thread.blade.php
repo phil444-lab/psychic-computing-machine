@@ -16,8 +16,7 @@
                     <div class=" image d-flex flex-column justify-content-center align-items-center"> 
                         <button class="btn btn-secondary"> <img src=" " height="100" width="100" /></button> 
                         @if($user)
-                            <span class="name mt-3">{{ $user->name }}</span>
-                            <span class="name">{{ $user->username }}</span>
+                            <span class="name mt-3">{{ $user->name }} {{ $user->username }}</span>
                             <span class="idd">{{ $user->pseudo }}</span>
                             <div class="d-flex flex-row justify-content-center align-items-center gap-2">
                                 <span><i class="bi bi-person-fill"></i></span>  
@@ -61,7 +60,7 @@
             </div>
 
 
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8 mt-5">
                 @if(session('error'))
                     <div class="alert alert-danger">
                         {{ session('error') }}
