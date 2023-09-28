@@ -16,6 +16,11 @@ class ThreadController extends Controller
     {
         $user = inscription::select('id', 'name', 'username', 'pseudo')->where('id', auth()->id())->first();
         $threads = threadlist::orderBy('created_at', 'desc')->get();
+        $newThread = threadlist::where('id', auth()->id())->first();
+        if ($newThread) {
+            $newThread->pseudo = $user->pseudo;
+            $newThread->save();
+        }
         return view('thread', ['user' => $user, 'threads' => $threads]);
     }
 
